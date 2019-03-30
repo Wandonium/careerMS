@@ -5,27 +5,63 @@ class CreateProfile extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email: '',
-			password: '',
-			name: ''
+			no_of_years_worked: 0,
+			availability: '',
+			location: '',
+			education: '',
+			experience: '',
+			achievements: '',
+			courses: '',
+			certification: '',
+			skills: '',
+			languages: ''
 		}
 	}
-	onNameChange = (event) => {
-		this.setState({name: event.target.value})
+	onNoOfYears = (event) => {
+		this.setState({no_of_years_worked: event.target.value})
 	}
-	onEmailChange = (event) => {
-		this.setState({email: event.target.value})
+	onAvailabilityChange = (event) => {
+		this.setState({availability: event.target.value})
 	}
-	onPasswordChange = (event) => {
-		this.setState({password: event.target.value})
+	onLocationChange = (event) => {
+		this.setState({location: event.target.value})
 	}
-	onSubmitRegister = () => {
+	onEducationChange = (event) => {
+		this.setState({education: event.target.value})
+	}
+	onExperienceChange = (event) => {
+		this.setState({experience: event.target.value})
+	}
+	onAchievementsChange = (event) => {
+		this.setState({achievements: event.target.value})
+	}
+	onCoursesChange = (event) => {
+		this.setState({courses: event.target.value})
+	}
+	onCertificationChange = (event) => {
+		this.setState({certification: event.target.value})
+	}
+	onSkillsChange = (event) => {
+		this.setState({skills: event.target.value})
+	}
+	onLanguagesChange = (event) => {
+		this.setState({languages: event.target.value})
+	}
+	onSubmitProfile = () => {
 		const data = {
-			name: this.state.name,
-			email: this.state.email,
-			password: this.state.password
+			no_of_years_worked: this.state.no_of_years_worked,
+			availability: this.state.availability,
+			location: this.state.location,
+			education: this.state.education,
+			experience: this.state.experience,
+			achievements: this.state.achievements,
+			courses: this.state.courses,
+			certification: this.state.certification,
+			skills: this.state.skills,
+			languages: this.state.languages
 		}
-		console.log(data);
+		this.props.loadUser(data);
+		this.props.onRouteChange('home');
 	}
 	render() {
 	    return (
@@ -41,6 +77,39 @@ class CreateProfile extends React.Component {
 				</nav>
 				<p>Create your profile below</p>
 		    	<form class="pa4 black-80">
+				  <div class="measure">
+				    <label for="name" class="f6 b db mb2">Number of years worked </label>
+				    <input 
+				    	onChange={this.onNoOfYears}
+				    	id="name" 
+				    	class="input-reset ba b--black-20 pa2 mb2 db w-100" 
+				    	type="text" 
+				    	aria-describedby="name-desc"
+				    />
+				    <small id="name-desc" class="f6 black-60 db mb2">Enter number of years you have worked in your field.</small>
+				  </div>
+				  <div class="measure">
+				    <label for="name" class="f6 b db mb2">Availability </label>
+				    <input 
+				    	onChange={this.onAvailabilityChange}
+				    	id="name" 
+				    	class="input-reset ba b--black-20 pa2 mb2 db w-100" 
+				    	type="text" 
+				    	aria-describedby="name-desc"
+				    />
+				    <small id="name-desc" class="f6 black-60 db mb2">Enter your availability in case of a job offer.</small>
+				  </div>
+				  <div class="measure">
+				    <label for="name" class="f6 b db mb2">Location </label>
+				    <input 
+				    	onChange={this.onLocationChange}
+				    	id="name" 
+				    	class="input-reset ba b--black-20 pa2 mb2 db w-100" 
+				    	type="text" 
+				    	aria-describedby="name-desc"
+				    />
+				    <small id="name-desc" class="f6 black-60 db mb2">Enter the location you prefer to work in.</small>
+				  </div>
 				  <div class="measure">
 				    <label for="name" class="f6 b db mb2">Education </label>
 				    <input 
@@ -123,7 +192,7 @@ class CreateProfile extends React.Component {
 			    		onClick={this.onSubmitProfile}
 			    		class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" 
 			    		type="submit" 
-			    		value="Sign Up"
+			    		value="Submit Profile"
 			    	/>
 				  </div>
 				</form>

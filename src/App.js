@@ -78,7 +78,7 @@ class App extends Component {
                 ? <OnError />
                 : (
                     (route === 'CreateProfile')
-                    ? <CreateProfile user={this.state.user}/>
+                    ? <CreateProfile user={this.state.user} loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
                     : <Register onRouteChange={ this.onRouteChange } loadUser={this.loadUser} />
                   )
               )
